@@ -1,0 +1,3 @@
+/**
+ * Initialize custom global components
+ */
