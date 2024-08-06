@@ -16,4 +16,10 @@ export const exampleRoutes: RouteRecordRaw[] = [
     name: 'Zip',
     component: () => import('/examples/views/zip/index.vue'),
   },
+  {
+    path: '/mouse-event',
+    name: 'MouseEvent',
+    component: () => import('/examples/dom/MouseEvent.vue'),
+  },
 ];
+// https://juejin.cn/post/7204635326559158330#heading-3
