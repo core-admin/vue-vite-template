@@ -1,16 +1,13 @@
 <template>
-  <div class="relative flex h-screen items-center bg-sky-400">
-    <div class="ml-[100px] h-[200px] w-[200px] bg-purple-500">
-      <div
-        class="ml-[50px] mt-[50px] h-[20px] w-[20px] cursor-pointer rounded-full bg-red-500"
-        @mousedown="onMouseDown"
-      ></div>
-    </div>
+  <div class="min-h-screen overflow-hidden bg-gray-300">
+    <div class="m-5 h-[1000px] w-[300px] bg-orange-500" @mousedown="handle"> </div>
   </div>
 </template>
 
 <script lang="ts" setup>
-  const onMouseDown = (e: MouseEvent) => {
-    console.log('onMouseDown', e);
+  const handle = (event: MouseEvent) => {
+    console.log('event', event);
   };
 </script>
+
+<style scoped></style>

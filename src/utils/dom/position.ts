@@ -59,18 +59,27 @@ export const getViewportOffset = (element: HTMLElement): ViewportOffsetResult =>
 };
 
 /**
- * 获取指定元素距离文档顶部的距离（top + 页面滚动距离，相对位置）
+ * 获取指定元素距离文档顶部的距离（top + 页面滚动距离，相对位置），可传入相对的目标元素
+ * 获取目标元素与指定的元素之间的距离
  */
-export function getOffsetTop(element: HTMLElement) {
-  let offset = 0;
-  let parent = element;
-
-  while (parent) {
-    offset += parent.offsetTop;
-    parent = parent.offsetParent as HTMLElement;
+export function getOffsetTop(target: HTMLElement, parent: HTMLElement = document.body) {
+  let offsetTop = 0;
+  while (target && target !== parent) {
+    offsetTop += target.offsetTop;
+    target = target.offsetParent as HTMLElement;
+    if (!target) break;
   }
+  return offsetTop;
+}
 
-  return offset;
+export function getOffsetLeft(target: HTMLElement, parent: HTMLElement = document.body) {
+  let offsetLeft = 0;
+  while (target && target !== parent) {
+    offsetLeft += target.offsetLeft;
+    target = target.offsetParent as HTMLElement;
+    if (!target) break;
+  }
+  return offsetLeft;
 }
 
 /**
